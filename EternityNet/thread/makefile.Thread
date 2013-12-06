@@ -1,0 +1,17 @@
+#CXXFLAGS += -Wall -g -O2 -static -fPIC -lpthread
+CXXFLAGS += -Wall -g -lpthread
+
+LOGFILE = ../utilities/LogUtil.h
+DEPS = testThreadBase.o Thread.o ../objs/Log.o ../objs/TimeStat.o
+
+testThreadBase:$(DEPS)
+	g++ -o ../bin/testThreadBase $(DEPS) -lpthread
+
+testThreadBase.o:testThreadBase.cpp Thread.h $(LOGFILE) 
+	g++ -c testThreadBase.cpp
+
+Thread.o:Thread.cpp Thread.h $(LOGFILE)
+	g++ -c Thread.cpp
+	cp Thread.o	../objs/
+clean:
+	rm -rf *.o testThreadBase

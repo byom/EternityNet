@@ -1,0 +1,14 @@
+CXXFLAGS += -Wall -g -o2
+
+#LOGFILE = ../utilities/LogUtil.h
+DEPS = testThreadPool.cpp ThreadPool.h ThreadPool.o ../objs/Log.o ../objs/TimeStat.o
+
+testThreadPool:$(DEPS)
+	g++ -o testThreadPool $(DEPS) -g -lpthread
+
+
+ThreadPool.o:ThreadPool.cpp ThreadPool.h ThreadInc.h ../utilities/LogUtil.h
+	g++ -c ThreadPool.cpp
+	cp ThreadPool.o	../objs/
+clean:
+	rm -rf *.o testThreadPool
