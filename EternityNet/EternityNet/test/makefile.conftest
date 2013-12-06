@@ -1,0 +1,6 @@
+ConfDep=./testConfigUtil.cpp ../objs/ConfigUtil.o ../utilities/ConfigUtil.h
+testconfig:$(ConfDep)
+	g++ -o testconfig $(ConfDep)
+
+clean:
+	rm -rf *.o testconfg

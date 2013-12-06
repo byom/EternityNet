@@ -1,0 +1,14 @@
+
+CXXFLAGS += -Wall -g -O2 -static -fPIC
+
+TimeStatObject = ../utilities/TimeStat.o ../utilities/Log.o
+testlogmain: $(TimeStatObject) testlog.cpp ../utilities/LogUtil.h
+	g++ -o testlogmain $(TimeStatObject) teslog.cpp  LogUtil.h
+
+TimeStat : ../utilities/TimeStat.cpp
+
+Log: ../utilities/Log.cpp
+
+clean:
+	rm -rf *.o testlogmain
+	

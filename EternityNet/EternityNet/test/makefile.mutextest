@@ -1,0 +1,11 @@
+# when i am not familiar with makefile writed it , just stay it for souvenir
+# that not all people can make this stupid mistake
+
+CXXFLAGS += -Wall -g -O2 -static -fPIC
+
+testpthread: $(TimeStatObject) testpthread.cpp ThreadInc.h 
+	g++ -o testpthread  testpthread.cpp ThreadInc.h -lpthread 
+
+clean:
+	rm -rf *.o testpthread
+	
